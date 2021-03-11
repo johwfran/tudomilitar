@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="icon" href="{% static "img/favicon.jpg" %}" type="image/x-icon"/>
+</head>
+
+<body>
+    <div id="div_principal">
+        <header id="cabecalho">
+            <img src="{% static "img/logo-01.jpg" %}" alt="TUDO MILITAR.LOGO">
+
+            <h1> TUDO MILITAR </h1>
+            <nav id="menu">
+                <h2 id="titulo_menu">MENU PRINCIPAL</h2>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="concurso.html">CONCURSOS 2021</a></li>
+                    <li><a href="curiosidades.html">CURIOSIDADES</a></li>
+                    <li><a href="recomendamos.html">RECOMEDAMOS</a></li>
+                    <li><a href="quemsomos.html">QUEM SOMOS</a></li>
+            </nav>
+        </header>
+        {% for Publicacoes in Publication %}
+            <section >
+                <h1>
+                    ________________________________________________________________________________
+                </h1>
+                <h1 align="center" >
+                    {{ Publicacoes.title }}
+                </h1>
+                
+                <h3 align="Justify">
+                    {{ Publicacoes.textantesdafoto }}
+                </h3>
+                
+                <center>
+                  <br>
+                  <img src="{{ Publicacoes.image.url }}" width=60% height=auto >
+                </center>
+
+                <h3 align="Justify">
+                  <br>
+                  {{ Publicacoes.text }}
+                </h3>
+
+                <h4 align="right">
+                  <br>
+                    {{ Publicacoes.author }} - {{ Publicacoes.date }} - {{ Publicacoes.category }}
+                </h4>
+                
+                <div id="voltarTopo">
+                    <a href="" id="subir">Voltar ao topo</a>
+                </div>
+
+            </section>
+        {% endfor %}
+        <footer id="rodape">
+            <strong>EXÉRCITO BRASILEIRO</strong> <br/> BRAÇO FORTE MÃO AMIGA
+        </footer>
+</body>
+
+</html>
