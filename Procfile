@@ -1,0 +1,1 @@
+web: gunicorn blogtudomilitar.wsgi --log-file -
